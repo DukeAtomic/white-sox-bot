@@ -2,6 +2,7 @@ name: "Post to Bluesky"
 on:
   schedule:
     - cron: "* * * */12 *"
+    workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
