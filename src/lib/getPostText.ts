@@ -1,5 +1,5 @@
 import * as Mastodon from 'tsl-mastodon-api';
-const mastodon = new Mastodon.API({access_token: ${{ secrets.ACCESS_TOKEN }}, api_url: 'https://mastodon.social/api/v1/'}); // access the Mastodon API using the access token.
+const mastodon = new Mastodon.API({access_token: '${{ secrets.ACCESS_TOKEN }}', api_url: 'https://mastodon.social/api/v1/'}); // access the Mastodon API using the access token.
 
 /*
 	getPostText():
