@@ -1,5 +1,5 @@
 import * as Mastodon from 'tsl-mastodon-api';
-const mastodon = new Mastodon.API({access_token: '${{ secrets.ACCESS_TOKEN }}', api_url: 'https://mastodon.social/api/v1/'}); // access the Mastodon API using the access token.
+const mastodon = new Mastodon.API({access_token: 'paste_access_token_here', api_url: 'https://mastodon.social/api/v1/'}); // access the Mastodon API using the access token.
 
 /*
 	getPostText():
@@ -20,9 +20,9 @@ export default async function getPostText()
 	var quoteReg = new RegExp(`\\\\"`, "g"); // A regex to deal with \". This should be replaced with a " value with no \.
 	var andReg = new RegExp("&amp;", "g"); // A regex to deal with &amp;. This should be replaced with &.
 	var logoReg = new RegExp("&nbsp;", "g"); // A regex to deal with &nbsp;. Should be deleted.
-	var twitterReg = new RegExp("@x.com", "g"); // A regex to deal with @twitter.com. Should be deleted.
+	var twitterReg = new RegExp("@twitter.com", "g"); // A regex to deal with @twitter.com. Should be deleted.
 	var sportsBotsReg = new RegExp("@sportsbots.xyz", "g");
-	var mlbWhiteSoxReg = new RegExp("@whitesox@sportsbots.xyz", "g"); // A regex to deal with White Sox's @. Should be replaced with the bot's @.
+	var nhlflyersReg = new RegExp("@nhlflyers@sportsbots.xyz", "g"); // A regex to deal with Flyers's @. Should be replaced with the bot's @.
 	var tagReg = new RegExp("<(:?[^>]+)>", "g"); // A general regex for HTML. Used to get the plaintext value of the mastodon post without tag notation.
 	var invalidLinkReg = new RegExp("\\S*(\\.com|\\.ca|\\.org|\\.net)\\S*(…|\\.\\.\\.)", "g");
 	var nbcsphillyReg = new RegExp("@nbcsphilly", "g"); // Regex example for a substitution within the post text. Can be helpful for if you want to replace an X/Twitter handle with the user's name
@@ -84,7 +84,7 @@ export default async function getPostText()
 		contentString = contentString.replace(logoReg, "");
 		contentString = contentString.replace(twitterReg, "");
 		contentString = contentString.replace(sportsBotsReg, "");
-		contentString = contentString.replace(mlbWhiteSoxReg, "notwhitesox.bsky.social");
+		contentString = contentString.replace(nhlflyersReg, "notflyers.bsky.social");
 		contentString = contentString.replace(tagReg, "");
 		contentString = contentString.replace(nbcsphillyReg, "NBCSP");
 		
