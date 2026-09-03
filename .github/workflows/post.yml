@@ -17,6 +17,5 @@ jobs:
       - name: Send post
       - run: npm start
         env:
-           CI=false
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
