@@ -27,7 +27,7 @@ export default async function getPostText()
 	var invalidLinkReg = new RegExp("\\S*(\\.com|\\.ca|\\.org|\\.net)\\S*(…|\\.\\.\\.)", "g");
 	var nbcsphillyReg = new RegExp("@nbcsphilly", "g"); // Regex example for a substitution within the post text. Can be helpful for if you want to replace an X/Twitter handle with the user's name
 
-	var awaitTweet = await mastodon.getStatuses(sourceMastodonId, {'limit':limitVal}); //Use the Mastodon API to get a specified number of recent posts from the Mastodon API.
+	var awaitTweet = await mastodon.getStatuses("109672525258868583", {'limit':limitVal}); //Use the Mastodon API to get a specified number of recent posts from the Mastodon API.
 	var string = JSON.stringify(awaitTweet); // Convert the post into a JSON string.
 	var objJSON = JSON.parse(string)["json"]; // Convert the JSON string back to a JSON object. Kinda silly, but it doesn't work otherwise. 
 	var stringArr = []; // Initialize an empty array that we will store the regexed plaintexts in.
