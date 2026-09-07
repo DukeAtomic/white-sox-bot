@@ -1,6 +1,7 @@
 name: "Post to Bluesky"
 on:
-    workflow_dispatch:
+    schedule:
+        - cron: "*/10 * * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,8 +11,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm install axios
-      - run: npm install tsl-mastodon-api
+  #    - run: npm install axios
+ #     - run: npm install tsl-mastodon-api
       - run: npm ci
       - run: npm run build
       - name: Send post
